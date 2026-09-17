@@ -1,5 +1,3 @@
-"""File persistence for the To-Do Task System."""
-
 from pathlib import Path
 
 from task import Task, PENDING, COMPLETED
@@ -11,7 +9,6 @@ SEPARATOR = "|"
 
 
 def save_tasks(tasks: list[Task]) -> None:
-    """Save all tasks to the local text file."""
     try:
         with DATA_FILE.open("w", encoding="utf-8") as file:
             for task in tasks:
@@ -21,11 +18,6 @@ def save_tasks(tasks: list[Task]) -> None:
 
 
 def load_tasks() -> list[Task]:
-    """Load valid tasks from the local text file.
-
-    Missing storage is treated as a first run. Malformed lines are skipped
-    rather than crashing the application.
-    """
     tasks: list[Task] = []
 
     if not DATA_FILE.exists():
