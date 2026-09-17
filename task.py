@@ -1,10 +1,7 @@
-"""Task operations for the To-Do Task System."""
-
 from typing import TypedDict
 
 
 class Task(TypedDict):
-    """Structure used for a stored task."""
 
     title: str
     status: str
@@ -15,13 +12,11 @@ COMPLETED = "Completed"
 
 
 def add_task(tasks: list[Task], title: str) -> None:
-    """Add a new pending task."""
     tasks.append({"title": title.strip(), "status": PENDING})
     print("Task added successfully!")
 
 
 def view_tasks(tasks: list[Task]) -> bool:
-    """Display all tasks and return whether at least one exists."""
     if not tasks:
         print("\nNo tasks found.")
         return False
@@ -43,7 +38,6 @@ def view_tasks(tasks: list[Task]) -> bool:
 
 
 def complete_task(tasks: list[Task], number: int) -> bool:
-    """Mark a task as completed. Return True when successful."""
     if number < 1 or number > len(tasks):
         print("Invalid task number.")
         return False
@@ -59,7 +53,6 @@ def complete_task(tasks: list[Task], number: int) -> bool:
 
 
 def delete_task(tasks: list[Task], number: int) -> bool:
-    """Delete a task by its displayed number. Return True when successful."""
     if number < 1 or number > len(tasks):
         print("Invalid task number.")
         return False
